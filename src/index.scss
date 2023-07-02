@@ -13,11 +13,17 @@ body {
 }
 
 .App {
-  width: 500px;
+  width: 600px;
   border-radius: 30px;
   padding: 40px;
   background-color: #fff;
   position: relative;
+
+  @media screen {
+    width: 300px;
+    font-size: 10px;
+    // padding: 30px;
+  }
 
   .result {
     text-align: center;
@@ -33,10 +39,18 @@ body {
       color: #fff;
       margin-top: 20px;
       cursor: pointer;
+
+      @media screen {
+        font-size: 16px;
+      }
     }
 
     h2 {
       margin-bottom: 0;
+
+      @media screen {
+        font-size: 20px;
+      }
     }
 
     img {
@@ -88,6 +102,10 @@ body {
 
   h1 {
     margin: 0;
+
+    @media screen {
+      font-size: 18px;
+    }
   }
 
   ul {
@@ -101,6 +119,12 @@ body {
       margin-bottom: 10px;
       cursor: pointer;
       transition: all 0.1s ease-in-out;
+
+      @media screen {
+        font-size: 14px;
+        padding: 10px;
+        margin-bottom: 3px;
+      }
 
       &:hover {
         border: 2px solid rgba(0, 0, 0, 0.3);
