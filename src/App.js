@@ -143,7 +143,7 @@ const questions = [
 function Result({ correct }) {
   const correctForm = correct < 5
     ? 'питання'
-    : 'иитань'
+    : 'питань'
 
   return (
     <div className="result">
