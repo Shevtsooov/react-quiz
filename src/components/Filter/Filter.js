@@ -10,6 +10,15 @@ export const Filter = ({
 }) => {
 
   const handleChooseCategory = (chosenCategory) => {
+
+    if (chosenCategories.includes(chosenCategory)) {
+      setChosenCategories(prevState => {
+        return prevState.filter(cat => cat !== chosenCategory)
+      });
+
+      return;
+    }
+
     setChosenCategories(prevState => ([
       ...prevState,
       chosenCategory,
