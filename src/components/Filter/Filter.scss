@@ -44,5 +44,16 @@
     &--chosen {
       background-color: #6a5be2;
     }
-  }  
+  }
+
+  &__warning {
+    color: #ff006e;
+    font-size: 0;
+    transition: font-size 0.8s;
+
+    &--visible {
+      font-size: 18px;
+      margin-top: 30px;
+    }
+  }
 }

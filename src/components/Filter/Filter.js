@@ -1,4 +1,6 @@
 import './Filter.scss';
+import React, { useState } from 'react';
+
 import cn from 'classnames';
 
 export const Filter = ({
@@ -8,6 +10,7 @@ export const Filter = ({
   chosenCategories,
   setPage,
 }) => {
+  const [isWarning, setIsWarning] = useState(false);
 
   const handleChooseCategory = (chosenCategory) => {
 
@@ -24,6 +27,19 @@ export const Filter = ({
       chosenCategory,
     ]))
   };
+
+  const handleContinue = (page) => {
+    if (chosenCategories.length === 0) {
+      setIsWarning(true);
+      setTimeout(() => {
+        setIsWarning(false);
+      }, 2500);
+
+      return;
+    }
+
+    setPage(page);
+  }
 
   return (
     <div className="filterPage">
@@ -52,10 +68,17 @@ export const Filter = ({
       </div>
       <button
         className="filterPage__button filterPage__button--next"
-        onClick={() => setPage(1)}
+        onClick={() => handleContinue(1)}
       >
         Далі
       </button>
+      <p
+        className={cn('filterPage__warning', {
+          'filterPage__warning--visible': isWarning,
+        })}
+        >
+          Будь ласка, оберіть категорії питань
+        </p>
     </div>
   );
 }
