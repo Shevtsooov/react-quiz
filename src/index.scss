@@ -25,22 +25,6 @@ body {
     padding: 30px;
   }
 
-  .progress {
-    height: 10px;
-    border-radius: 30px;
-    background-color: rgb(232, 232, 232);
-    margin-bottom: 25px;
-
-    &__inner {
-      height: 100%;
-      border-radius: 30px;
-      width: 80%;
-      background: rgb(18, 231, 48);
-      transition: all 0.3s ease-in-out;
-      background: linear-gradient(90deg, rgba(18, 231, 48, 1) 0%, rgba(0, 212, 255, 1) 100%);
-    }
-  }
-
   &:before,
   &:after {
     content: '';
@@ -65,37 +49,5 @@ body {
     bottom: -20px;
     background-color: rgba(255, 255, 255, 0.3);
     z-index: 1;
-  }
-
-  h1 {
-    margin: 0;
-
-    @media (max-width: 400px) {
-      font-size: 18px;
-    }
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      padding: 15px;
-      border: 2px solid rgba(0, 0, 0, 0.1);
-      border-radius: 15px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: all 0.1s ease-in-out;
-
-      @media (max-width: 400px) {
-        font-size: 14px;
-        padding: 10px;
-        margin-bottom: 3px;
-      }
-
-      &:hover {
-        border: 2px solid rgba(0, 0, 0, 0.3);
-      }
-    }
   }
 }

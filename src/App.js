@@ -1,7 +1,7 @@
 import './index.scss';
 import React, { useState, useMemo } from 'react';
 
-import { Game } from './components/Game';
+import { Game } from './components/Game/Game';
 import { Result } from './components/Result/Result';
 import { Filter } from './components/Filter/Filter';
 import { Quantity } from './components/Quantity/Quantity';
@@ -26,14 +26,6 @@ export const App = () => {
 
  const question = readyQuestions[step];
  
-  const onAnswerClick = (index) => {
-    setStep(step + 1);
-
-    if (index === question.correct) {
-      setCorrect(correct + 1);
-    }
-  }
-
   const isGameOver = step === readyQuestions.length && page > 1;
 
   return (
@@ -57,7 +49,9 @@ export const App = () => {
         readyQuestions={readyQuestions}
           question={question}
           step={step}
-          onAnswerClick={onAnswerClick}
+          setStep={setStep}
+          correct={correct}
+          setCorrect={setCorrect}
         />
       )}
 
