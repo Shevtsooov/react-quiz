@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 
 export const Filter = ({
-  readyQuestions,
-  correct,
   setChosenCategories,
   chosenCategories,
   setPage,
@@ -26,6 +24,7 @@ export const Filter = ({
       ...prevState,
       chosenCategory,
     ]))
+    console.log(chosenCategories)
   };
 
   const handleContinue = (page) => {
@@ -41,6 +40,25 @@ export const Filter = ({
     setPage(page);
   }
 
+  const categories = [
+    {
+      title: 'Історія',
+      nickname: 'history',
+    },
+    {
+      title: 'Спорт',
+      nickname: 'sport',
+    },
+    {
+      title: 'Географія',
+      nickname: 'geography',
+    },
+    {
+      title: 'Інші питання',
+      nickname: 'others',
+    },
+  ]
+
   return (
     <div className="filterPage">
       <h2
@@ -49,7 +67,18 @@ export const Filter = ({
         Будь ласка, оберіть категорії питань:
       </h2>
       <div className="filterPage__categories">
-        <button
+        {categories.map(category => (
+          <button
+          className={cn('filterPage__button', {
+            'filterPage__button--chosen': chosenCategories.includes(category.nickname),
+          })}
+          key={category.nickname}
+          onClick={() => {handleChooseCategory(category.nickname)}}
+        >
+          {category.title}
+        </button>
+        ))}
+        {/* <button
           className={cn('filterPage__button', {
             'filterPage__button--chosen': chosenCategories.includes('history'),
           })}
@@ -64,7 +93,7 @@ export const Filter = ({
           onClick={() => {handleChooseCategory('geography')}}
         >
           Географія
-        </button>
+        </button> */}
       </div>
       <button
         className="filterPage__button filterPage__button--next"

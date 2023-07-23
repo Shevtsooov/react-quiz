@@ -1,7 +1,9 @@
 import { geography } from '../../data/geography';
 import { history } from '../../data/history';
+import { sport } from '../../data/sport';
+import { others } from '../../data/others';
 
-const categories = [history, geography];
+const categories = [history, geography, sport, others];
 
 export const filterQuestions = (chosenCategories) => {
   let questions = [];
