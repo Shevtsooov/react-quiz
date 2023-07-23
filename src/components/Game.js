@@ -1,11 +1,11 @@
 export function Game({
-  questions,
+  readyQuestions,
   question,
   step,
   onAnswerClick,
 }) {
   
-  const percentage = Math.round(step / questions.length * 100);
+  const percentage = Math.round(step / readyQuestions.length * 100);
 
   return (
     <>

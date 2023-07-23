@@ -1,12 +1,14 @@
 import './index.scss';
-import React, { useState } from 'react';
-import { questions } from './data/questions';
-import { history } from './data/history';
-import { geography } from './data/geography';
+import React, { useState, useMemo } from 'react';
+
 import { Game } from './components/Game';
 import { Result } from './components/Result/Result';
 import { Filter } from './components/Filter/Filter';
 import { Quantity } from './components/Quantity/Quantity';
+
+import { filterQuestions } from './components/helpers/filterQuestions';
+import { getRandomQuestions } from './components/helpers/filterQuestions';
+
 
 
 export const App = () => {
@@ -14,13 +16,16 @@ export const App = () => {
   const [page, setPage] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [chosenCategories, setChosenCategories] = useState([]);
+  const [quantity, setQuantity] = useState(0);
+
   
-  const question = questions[step];
+  const filteredQuestions = useMemo(() => filterQuestions(chosenCategories), [chosenCategories]);
+  const readyQuestions = useMemo(() => getRandomQuestions(filteredQuestions, quantity), [filteredQuestions, quantity]);
 
-  const filterQuestions = () => {
 
-  }
 
+ const question = readyQuestions[step];
+ 
   const onAnswerClick = (index) => {
     setStep(step + 1);
 
@@ -29,7 +34,7 @@ export const App = () => {
     }
   }
 
-  const filteredQuestions = filterQuestions();
+  const isGameOver = step === readyQuestions.length && page > 1;
 
   return (
     <div className="App">
@@ -42,22 +47,26 @@ export const App = () => {
     )}
       {page === 1 && (
       <Quantity 
-        setChosenCategories={setChosenCategories}
-        chosenCategories={chosenCategories}
+        setQuantity={setQuantity}
+        quantity={quantity}
         setPage={setPage}
       />
     )}
-      {page > 1 && (
+      {page > 1 && question && (
         <Game
+        readyQuestions={readyQuestions}
           question={question}
           step={step}
           onAnswerClick={onAnswerClick}
         />
       )}
 
-      {/* : <Result
+      {isGameOver && (
+        <Result
+        readyQuestions={readyQuestions}
           correct={correct}
-        />} */}
+        />
+      )} 
     </div>
   );
 }

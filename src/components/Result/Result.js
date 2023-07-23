@@ -1,7 +1,7 @@
 import './Result.scss'
 
 export const Result = ({
-  questions,
+  readyQuestions,
   correct,
 }) => {
   const correctForm = correct < 5
@@ -16,7 +16,7 @@ export const Result = ({
       alt="Congratulations"
       />
       <h2 className="resultPage__header">
-        {`Ви правильно відповіли на ${correct} ${correctForm} з ${questions.length}`}</h2>
+        {`Ви правильно відповіли на ${correct} ${correctForm} з ${readyQuestions.length}`}</h2>
       <a href="/">
         <button className="resultPage__button">Спробувати знову</button>
       </a>

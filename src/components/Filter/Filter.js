@@ -2,7 +2,7 @@ import './Filter.scss';
 import cn from 'classnames';
 
 export const Filter = ({
-  questions,
+  readyQuestions,
   correct,
   setChosenCategories,
   chosenCategories,
