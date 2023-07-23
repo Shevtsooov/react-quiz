@@ -69,7 +69,7 @@ export const Quantity = ({
           'quantityPage__warning--visible': isWarning,
         })}
         >
-          Будь ласка, оберіть кількість питань
+          Будь ласка, зробіть вибір
         </p>
     </div>
   );

@@ -3,7 +3,7 @@
 
   @media (max-width: 400px) {
     font-size: 16px;
-    height: 400px;
+    // height: 320px;
   }
 
   &__header {
@@ -36,6 +36,12 @@
     cursor: pointer;
 
     transition: background 0.8s;
+
+    @media (max-width: 400px) {
+      font-size: 16px;
+      padding: 10px 15px;
+      margin-top: 5px;
+    }
 
     &--next {
       background-color: #6a5be2;

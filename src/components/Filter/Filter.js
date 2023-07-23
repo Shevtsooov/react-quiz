@@ -106,7 +106,7 @@ export const Filter = ({
           'filterPage__warning--visible': isWarning,
         })}
         >
-          Будь ласка, оберіть категорії питань
+          Будь ласка, оберіть категорії
         </p>
     </div>
   );
